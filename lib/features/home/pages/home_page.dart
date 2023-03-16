@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_weather_app/features/weather_page/pages/weather_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({
     Key? key,
   }) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,30 +30,38 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.white,
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15.0),
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15.0),
-                        ),
-                      ),
-                      label: Text('City'),
-                      labelStyle: TextStyle(fontSize: 17, color: Colors.white),
-                      hintText: 'Warszawa',
-                      hintStyle: TextStyle(fontSize: 17, color: Colors.white)),
+                    ),
+                    label: Text('City'),
+                    labelStyle: TextStyle(fontSize: 17, color: Colors.white),
+                    hintText: 'Warszawa',
+                    hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                  ),
                 ),
               ),
             ),
             Center(
               child: ElevatedButton(
                 child: const Text('Get'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const WeatherPage(),
+                    ),
+                  );
+                },
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color.fromARGB(255, 213, 205, 130),
-                )),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromARGB(255, 213, 205, 130),
+                  ),
+                ),
               ),
             ),
           ],
