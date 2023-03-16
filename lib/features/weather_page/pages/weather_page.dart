@@ -20,11 +20,13 @@ class WeatherPage extends StatelessWidget {
               fit: BoxFit.cover,
               opacity: 0.7),
         ),
-        child: Column(
-          children: const [
-            TopWidget(),
-            WeatherDetails(),
-          ],
+        child: SafeArea(
+          child: Column(
+            children: const [
+              TopWidget(),
+              WeatherDetails(),
+            ],
+          ),
         ),
       ),
     );
