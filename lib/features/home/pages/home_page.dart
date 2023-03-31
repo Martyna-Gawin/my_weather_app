@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_weather_app/features/home/cubit/home_cubit.dart';
 import 'package:my_weather_app/features/weather_page/pages/weather_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_weather_app/repositories/weather_repository.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -11,7 +12,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()..start(),
+      create: (context) => HomeCubit(
+        WeatherRepository(),
+      ),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           if (state.errorMessage.isNotEmpty) {
