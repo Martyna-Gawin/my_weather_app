@@ -12,11 +12,18 @@ class HomeCubit extends Cubit<HomeState> {
         );
 
   Future<void> start() async {
-    emit(
-      const HomeState(
-        isLoading: true,
-        errorMessage: '',
-      ),
-    );
+      emit(
+        const HomeState(
+          isLoading: true,
+          errorMessage: '',
+        ),
+      );
+
+      emit(
+        const HomeState(
+          isLoading: false,
+          errorMessage: '',
+        ),
+      );
   }
 }
