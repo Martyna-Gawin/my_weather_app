@@ -2,12 +2,12 @@ part of 'weather_cubit.dart';
 
 class WeatherState {
   WeatherState({
-    required this.documents,
-    required this.isLoading,
-    required this.errorMessage,
+    this.model,
+    this.status = Status.initial,
+    this.errorMessage,
   });
 
-  final List documents;
-  final bool isLoading;
-  final String errorMessage;
+  final WeatherModel? model;
+  final Status status;
+  final String? errorMessage;
 }

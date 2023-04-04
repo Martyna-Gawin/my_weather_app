@@ -1,4 +1,4 @@
-import 'package:my_weather_app/models/weather_model.dart';
+import 'package:my_weather_app/domain/models/weather_model.dart';
 
 class WeatherRepository {
   Future<WeatherModel?> getWeatherModel({
