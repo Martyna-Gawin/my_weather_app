@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_weather_app/features/weather_page/cubit/weather_cubit.dart';
+import 'package:my_weather_app/features/weather_page/pages/weather_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({
@@ -12,62 +11,88 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Weather App'),
-        backgroundColor: const Color.fromARGB(255, 213, 205, 130),
-        centerTitle: true,
-      ),
-      backgroundColor: Colors.transparent,
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
+        constraints: const BoxConstraints.expand(),
+        decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('images/world.jpg'),
-              fit: BoxFit.cover,
-              opacity: 0.7),
+            image: const AssetImage("images/sky.png"),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.white.withOpacity(1.0),
+              BlendMode.dst,
+            ),
+          ),
         ),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: TextField(
-                controller: _controler,
-                cursorColor: Colors.black,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15.0),
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'My Weather App',
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  controller: _controler,
+                  cursorColor: Colors.white,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15.0),
+                      ),
+                    ),
+                    label: Text('City'),
+                    labelStyle: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                    ),
+                    hintText: 'Warszawa',
+                    hintStyle: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
                     ),
                   ),
-                  label: Text('City'),
-                  labelStyle: TextStyle(fontSize: 17, color: Colors.white),
-                  hintText: 'Warszawa',
-                  hintStyle: TextStyle(fontSize: 17, color: Colors.white),
                 ),
               ),
-            ),
-            Center(
-              child: ElevatedButton(
-                child: const Text('Get'),
-                onPressed: () {
-                  context
-                      .read<WeatherCubit>()
-                      .getWeatherModel(city: _controler.text);
-                  _controler.clear();
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color.fromARGB(255, 213, 205, 130),
+              const SizedBox(
+                height: 30,
+              ),
+              Center(
+                child: ElevatedButton(
+                  child: const Text('Get',
+                      style: TextStyle(color: Color.fromARGB(255, 66, 64, 62))),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const WeatherPage(),
+                      ),
+                    );
+                    //context
+                    //.read<WeatherCubit>()
+                    // .getWeatherModel(city: _controler.text);
+                    // _controler.clear();
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      const Color.fromARGB(255, 250, 249, 249),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

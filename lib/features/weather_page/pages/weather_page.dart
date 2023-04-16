@@ -34,20 +34,25 @@ class WeatherPage extends StatelessWidget {
           final weatherModel = state.model;
 
           return Scaffold(
-            backgroundColor: Colors.transparent,
             body: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: const BoxDecoration(
+              constraints: const BoxConstraints.expand(),
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('images/world.jpg'),
-                    fit: BoxFit.cover,
-                    opacity: 0.7),
+                  image: const AssetImage("images/sky.png"),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    Colors.white.withOpacity(1.0),
+                    BlendMode.dst,
+                  ),
+                ),
               ),
               child: SafeArea(
                 child: Column(
                   children: const [
                     TopWidget(),
+                    //SizedBox(
+                    //height: 100,
+                    //),
                     WeatherDetails(),
                   ],
                 ),

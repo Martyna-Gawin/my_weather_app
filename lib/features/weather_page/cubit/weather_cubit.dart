@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:my_weather_app/app/core/enums.dart';
 import 'package:my_weather_app/domain/models/weather_model.dart';
 import 'package:my_weather_app/domain/repositories/weather_repository.dart';
