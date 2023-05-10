@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+TextStyle topFont = const TextStyle(
+    fontWeight: FontWeight.bold, fontSize: 50, color: Colors.white);
+TextStyle detailsFont = const TextStyle(
+    fontWeight: FontWeight.bold, fontSize: 17, color: Colors.white);
+
 class TopWidget extends StatelessWidget {
   const TopWidget({
     Key? key,
@@ -20,31 +25,39 @@ class TopWidget extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 '10°C',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: topFont,
               ),
             ],
           ),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 'Wrocław',
-                style: TextStyle(
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: topFont,
               ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Bezchmurnie',
+                style: detailsFont,
+              ),
+              const Icon(
+                Icons.sunny,
+                size: 30,
+              )
             ],
           ),
         ],

@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+TextStyle titleFont = const TextStyle(
+    fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white);
+
+TextStyle detailsFont = const TextStyle(
+    fontWeight: FontWeight.bold, fontSize: 17, color: Colors.white);
+
 class WeatherDetails extends StatelessWidget {
   const WeatherDetails({
     Key? key,
@@ -18,97 +24,65 @@ class WeatherDetails extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Center(
+          Center(
             child: Text(
               'Additional Information',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: titleFont,
             ),
           ),
           const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Wind',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
               Text(
                 '2545',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
             ],
           ),
           const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Humidity',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
               Text(
                 '6,5',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
             ],
           ),
           const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Pressure',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
               Text(
                 '1000',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
             ],
           ),
           const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Feels like',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
               Text(
                 '14',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                ),
+                style: detailsFont,
               ),
             ],
           ),

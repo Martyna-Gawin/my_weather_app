@@ -1,7 +1,7 @@
-part of 'weather_cubit.dart';
+part of 'home_cubit.dart';
 
-class WeatherState {
-  WeatherState({
+class HomeState {
+  HomeState({
     this.model,
     this.status = Status.initial,
     this.errorMessage,

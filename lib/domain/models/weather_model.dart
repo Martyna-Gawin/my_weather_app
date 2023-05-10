@@ -5,7 +5,7 @@ class WeatherModel {
     required this.wind,
     required this.humidity,
     required this.pressure,
-    required this.feels_like,
+    required this.feelslike,
   });
 
   final double temperature;
@@ -13,5 +13,5 @@ class WeatherModel {
   final double wind;
   final String humidity;
   final double pressure;
-  final double feels_like;
+  final double feelslike;
 }
