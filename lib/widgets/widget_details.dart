@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_weather_app/domain/models/weather_model.dart';
 
 TextStyle titleFont = const TextStyle(
     fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white);
@@ -7,9 +8,11 @@ TextStyle detailsFont = const TextStyle(
     fontWeight: FontWeight.bold, fontSize: 17, color: Colors.white);
 
 class WeatherDetails extends StatelessWidget {
-  const WeatherDetails({
-    Key? key,
-  }) : super(key: key);
+  const WeatherDetails({Key? key, 
+  required this.weatherModel})
+      : super(key: key);
+
+  final WeatherModel weatherModel;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class WeatherDetails extends StatelessWidget {
                 style: detailsFont,
               ),
               Text(
-                '2545',
+                weatherModel.wind.toString(),
                 style: detailsFont,
               ),
             ],
@@ -53,7 +56,7 @@ class WeatherDetails extends StatelessWidget {
                 style: detailsFont,
               ),
               Text(
-                '6,5',
+                weatherModel.humidity,
                 style: detailsFont,
               ),
             ],
@@ -67,7 +70,7 @@ class WeatherDetails extends StatelessWidget {
                 style: detailsFont,
               ),
               Text(
-                '1000',
+                weatherModel.pressure.toString(),
                 style: detailsFont,
               ),
             ],
@@ -81,7 +84,7 @@ class WeatherDetails extends StatelessWidget {
                 style: detailsFont,
               ),
               Text(
-                '14',
+                weatherModel.feelslike.toString(),
                 style: detailsFont,
               ),
             ],

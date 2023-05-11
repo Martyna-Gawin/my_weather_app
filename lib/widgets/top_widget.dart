@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_weather_app/domain/models/weather_model.dart';
 
 TextStyle topFont = const TextStyle(
     fontWeight: FontWeight.bold, fontSize: 50, color: Colors.white);
@@ -6,9 +7,9 @@ TextStyle detailsFont = const TextStyle(
     fontWeight: FontWeight.bold, fontSize: 17, color: Colors.white);
 
 class TopWidget extends StatelessWidget {
-  const TopWidget({
-    Key? key,
-  }) : super(key: key);
+  const TopWidget({Key? key, required this.weatherModel}) : super(key: key);
+
+  final WeatherModel weatherModel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class TopWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '10°C',
+                weatherModel.temperature.toString(),
                 style: topFont,
               ),
             ],
@@ -39,25 +40,9 @@ class TopWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Wrocław',
+                weatherModel.city,
                 style: topFont,
               ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Bezchmurnie',
-                style: detailsFont,
-              ),
-              const Icon(
-                Icons.sunny,
-                size: 30,
-              )
             ],
           ),
         ],

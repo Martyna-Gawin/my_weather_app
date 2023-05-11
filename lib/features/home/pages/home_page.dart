@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_weather_app/app/core/enums.dart';
 import 'package:my_weather_app/features/home/cubit/home_cubit.dart';
 import 'package:my_weather_app/widgets/top_widget.dart';
-import 'package:my_weather_app/widgets/widget_details.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_weather_app/widgets/widget_details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -16,11 +16,7 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         if (state.status == Status.error) {
           final errorMessage = state.errorMessage ?? 'Something went wrong';
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(errorMessage),
-            ),
-          );
+          Text(errorMessage);
         }
         if (state.status == Status.loading) {
           return const Center(
@@ -45,9 +41,10 @@ class HomePage extends StatelessWidget {
             ),
             child: SafeArea(
               child: Column(
-                children: const [
-                  TopWidget(),
-                  WeatherDetails(),
+                children: [
+                  if (weatherModel != null)
+                    TopWidget(weatherModel: weatherModel),
+                  WeatherDetails(weatherModel: weatherModel!),
                 ],
               ),
             ),

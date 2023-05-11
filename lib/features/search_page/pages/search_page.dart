@@ -73,22 +73,23 @@ class SearchPage extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read<HomeCubit>()
+                        .getWeatherModel(city: _controller.text);
+                    _controller.clear();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const HomePage(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Get',
                     style: TextStyle(
                       color: Color.fromARGB(255, 66, 64, 62),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => const HomePage(),
-                      ),
-                    );
-                    //context
-                    //.read<HomeCubit>()
-                    //.getWeatherModel(city: _controller.text);
-                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
                       const Color.fromARGB(255, 250, 249, 249),
