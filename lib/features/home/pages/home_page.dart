@@ -42,9 +42,10 @@ class HomePage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                  if (weatherModel != null)
+                  if (weatherModel != null) ...[
                     TopWidget(weatherModel: weatherModel),
-                  WeatherDetails(weatherModel: weatherModel!),
+                    WeatherDetails(weatherModel: weatherModel),
+                  ]
                 ],
               ),
             ),

@@ -8,8 +8,7 @@ TextStyle detailsFont = const TextStyle(
     fontWeight: FontWeight.bold, fontSize: 17, color: Colors.white);
 
 class WeatherDetails extends StatelessWidget {
-  const WeatherDetails({Key? key, 
-  required this.weatherModel})
+  const WeatherDetails({Key? key, required this.weatherModel})
       : super(key: key);
 
   final WeatherModel weatherModel;
