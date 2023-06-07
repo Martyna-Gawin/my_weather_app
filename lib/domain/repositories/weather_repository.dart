@@ -14,7 +14,7 @@ class WeatherRepository {
     final name = responseData['location']['name'] as String;
     final temperature = (responseData['current']['temp_c'] + 0.0) as double;
     final wind = (responseData['current']['wind_kph'] + 0.0) as double;
-    final humidity = responseData['current']['humidity'] as String;
+    final humidity = (responseData['current']['humidity'] as int).toString();
     final pressure = (responseData['current']['pressure_mb'] + 0.0) as double;
     final feelslike = (responseData['current']['feelslike_c'] + 0.0) as double;
     return WeatherModel(
