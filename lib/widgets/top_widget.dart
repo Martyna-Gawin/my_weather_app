@@ -14,7 +14,7 @@ class TopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(32),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
       padding: const EdgeInsets.all(32),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(

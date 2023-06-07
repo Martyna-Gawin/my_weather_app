@@ -42,6 +42,19 @@ class HomePage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(Icons.close),
+                        color: Colors.white,
+                        iconSize: 30,
+                      ),
+                    ],
+                  ),
                   if (weatherModel != null) ...[
                     TopWidget(weatherModel: weatherModel),
                     WeatherDetails(weatherModel: weatherModel),
